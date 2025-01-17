@@ -16,16 +16,17 @@ const SalesContainer = ({
   gross,
   net,
 }) => {
-  const [isActive, setIsActive] = useState(false);
+    const [activeItem , setActiveItem] = useState(null);
 
-  const toggleActive = () => {
-    setIsActive((prev) => !prev);
+  const toggleActive = (item) => {
+    if(activeItem == item){
+        setActiveItem(null);
+    }else{
+        setActiveItem(item);
+    }
   };
 
-  const currentDate = new Date();
-  const formattedDate = `${currentDate.getDate()}/${
-    currentDate.getMonth() + 1
-  }/${currentDate.getFullYear()}`;
+  const currentDate = new Date().toLocaleDateString();
 
   const salesDetails = [
     { label: "Sales", value: `$${sales}` },
@@ -46,7 +47,7 @@ const SalesContainer = ({
   ];
 
   const SalesDetailItem = ({ label, value }) => (
-    <li className="flex items-center w-full">
+    <li className="flex items-center w-full border-b-2 mb-[0.1rem]">
       <FontAwesomeIcon
         icon={faCaretRight}
         className="text-[11px] translate-y-[-1px]"
@@ -59,7 +60,7 @@ const SalesContainer = ({
   );
 
   return (
-    <div className="sales-container w-[20%] flex flex-col">
+    <div className="sales-container relative w-[20%] flex flex-col">
       <div className={`sales-container-top ${bg} text-white p-2`}>
         <h2>{time}</h2>
         <h3 className="text-[13px]">{date}</h3>
@@ -103,28 +104,30 @@ const SalesContainer = ({
         </div>
       </div>
       <button
-        className={`${isActive ? "more-button" : ""} text-blue-700 pb-[10px]`}
-        onClick={toggleActive}
+        className="more-button text-blue-700 pb-[10px]"
+        onClick={() => toggleActive(time)}
       >
         More
       </button>
-      <div className="details-container flex flex-col p-2 w-[100%] translate-x-[-10px]">
-        <div className="details-date">
-          <h2>{time}</h2>
-          <p>{formattedDate}</p>
-        </div>
-        <div>
-          <ul className="text-[0.9rem] w-[15vw] bg-yellow-500">
-            {salesDetails.map((detail, index) => (
-              <SalesDetailItem
-                key={index}
-                label={detail.label}
-                value={detail.value}
-              />
-            ))}
-          </ul>
-        </div>
-      </div>
+      {
+        activeItem === time && (        <div className="details-container absolute flex flex-col p-2 w-[100%] ">
+            <div className="details-date mb-[0.5rem]">
+              <h2>{time}</h2>
+              <p className="text-[12px] border-b-2">{currentDate}</p>
+            </div>
+            <div>
+              <ul className="text-[0.9rem] w-[15vw] bg-white-900">
+                {salesDetails.map((detail, index) => (
+                  <SalesDetailItem
+                    key={index}
+                    label={detail.label}
+                    value={detail.value}
+                  />
+                ))}
+              </ul>
+            </div>
+          </div>)
+      }
     </div>
   );
 };

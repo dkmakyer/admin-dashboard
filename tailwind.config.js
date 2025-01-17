@@ -8,6 +8,7 @@ export default {
     extend: {
       colors:{
         customOrange: "#ffb832",
+        customOutline: "rgba(0, 0, 0, 0.2)",
       }
     },
   },

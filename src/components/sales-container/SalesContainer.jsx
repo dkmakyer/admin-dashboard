@@ -110,7 +110,7 @@ const SalesContainer = ({
         More
       </button>
       {
-        activeItem === time && (        <div className="details-container absolute flex flex-col p-2 w-[100%] ">
+        activeItem === time ? (        <div className="details-container absolute flex flex-col p-2 w-[100%] ">
             <div className="details-date mb-[0.5rem]">
               <h2>{time}</h2>
               <p className="text-[12px] border-b-2">{currentDate}</p>
@@ -126,7 +126,7 @@ const SalesContainer = ({
                 ))}
               </ul>
             </div>
-          </div>)
+          </div>) : null
       }
     </div>
   );

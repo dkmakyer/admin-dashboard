@@ -12,3 +12,18 @@
 .more-button{
     border-bottom: 3px solid rgba(38, 0, 255);
 }
+.first{
+    background-color: rgba(0, 0, 255, 0.5);
+}
+.second{
+    background-color: blue;
+}
+.third{
+    background: linear-gradient(to right, blue 0%, green 100%);
+}
+.forth{
+    background-color: rgb(20, 117, 0);
+}
+.fifth{
+    background-color: rgba(14, 83, 0, 0.8);
+}

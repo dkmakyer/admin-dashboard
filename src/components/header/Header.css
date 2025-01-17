@@ -1,0 +1,18 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+.header-container{
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+.active-header-route{
+    color: rgb(27, 0, 180);
+}
+.active-bottom{
+    background-color: rgb(27, 0, 180);
+    width: 60px;
+    height: 2px;
+    position: absolute;
+    transform: translate(-5px, 32px);
+}

@@ -12,15 +12,15 @@ const App = () => {
         <div className='flex flex-row'>
         <SideBar/>
         <Header/>
-        </div>
         <Routes>
-          {/* <Route path="/" element={<Dashboard/>}/> */}
+          <Route path="/" element={<Dashboard/>}/>
           {/* <Route path="/products" element={<Products/>}/>
           <Route path="/inventory" element={<Inventory/>}/>
           <Route path="/reports" element={<Reports/>}/>
           <Route path="/alerts" element={<Alerts/>}/>
           <Route path="/settings" element={<Settings/>}/> */}
         </Routes>
+        </div>
       </BrowserRouter>
     </>
   )

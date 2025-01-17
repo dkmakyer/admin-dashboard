@@ -1,46 +1,54 @@
-import {useState} from 'react';
+import { useState } from 'react';
 import './Header.css';
 import { NavLink } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowRight, faBank,faBoxes,faChartBar,faDashboard, faExclamation, faToolbox } from '@fortawesome/free-solid-svg-icons';
-import { faLetterboxd, faProductHunt } from '@fortawesome/free-brands-svg-icons';
-import { faChartLine } from '@fortawesome/free-solid-svg-icons/faChartLine';
-
+import { faBell, faBoxes, faChartBar, faChartLine, faDownLong, faUser  } from '@fortawesome/free-solid-svg-icons';
 
 const Header = () => {
-    const [active, setActive] = useState(null);
-    
+    const [active, setActive] = useState(''); // Set default active route
+
     const routes = [
-      { path: '/', icon: faBoxes, label: 'Tiles', fontawesomeClass: ""},
-      { path: '/products', icon: faChartBar, label: 'Chart', fontawesomeClass: ""},
-      { path: '/inventory', icon: faChartLine, label: 'Trends', fontawesomeClass: ""},
+        { path: '/tiles', icon: faBoxes, label: 'Tiles' },
+        { path: '/chart', icon: faChartBar, label: 'Chart' },
+        { path: '/trends', icon: faChartLine, label: 'Trends' },
     ];
 
-  function setIsActive(path){
-    setActive(path);
-  }
+    function setIsActive(path) {
+        setActive(path);
+    }
 
-  return (
-    <>
-    <div className="header-container flex relative  text-[17px]">
-      <h1 className='text-[20px]'>DASHBOARD</h1>
-      <div className="header-routes gap-[20px] absolute mt-[2rem]">
-        {routes.map(({ path, icon, label, fontawesomeClass }) => (
-          <NavLink
-            key={path}
-            to={path}
-            className={`flex items-center justify-between ${active == path ? "active text-purple-500" : ""}`}
-            onClick={() => setIsActive(path)}
-          >
-            <FontAwesomeIcon icon={icon} className={fontawesomeClass} />
-            {label}
-            <FontAwesomeIcon icon={faArrowRight} />
-          </NavLink>
-        ))}
-      </div>
-    </div>
-    </>
-  );
+    return (
+        <>
+            <div className="header-container relative w-full h-[10%] flex flex-row p-4 text-[14px]">
+                <div className="first-half flex flex-row justify-between w-[30%]">
+                    <h1 className='text-[20px] font-bold translate-y-[-4px]'>DASHBOARD</h1>
+                    {routes.map(({ path, icon, label }) => (
+                        <NavLink
+                            key={path}
+                            to={path}
+                            onClick={() => setIsActive(path)}
+                            className={`flex items-center ${active === path ? "active-header-route" : ""}`}
+                        >
+                            <FontAwesomeIcon icon={icon} /> {label} {active === path ? <span className='active-bottom'></span> : null}
+                        </NavLink>
+                    ))}
+                </div>
+                <div className="last-half absolute right-14 flex flex-row justify-evenly w-[20%]">
+                    <div className='w-[30%] flex flex-row items-center'>
+                        <FontAwesomeIcon icon={faBell} className='text-yellow-500' />
+                        <p className='w-[50%] rounded bg-yellow-300 pl-[5px] translate-x-[-3px]'>233</p>
+                    </div>
+                    <div className='flex flex-row items-center justify-between w-[60%]'>
+                        <span className='flex items-center pl-[9px] rounded-[50%] text-white w-[30px] h-[30px] bg-blue-500'>
+                            <FontAwesomeIcon icon={faUser } />
+                        </span>
+                        <p>Demo Account</p>
+                        <FontAwesomeIcon icon={faDownLong} />
+                    </div>
+                </div>
+            </div>
+        </>
+    );
 };
 
 export default Header;

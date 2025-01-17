@@ -6,17 +6,17 @@
 .sidebar-container{
     background-color: rgba(0, 0, 0, 0.8);
 }
-.active{
+.active-side-route{
     position: relative;
 }
-.active::before{
+.active-side-route::before{
     content: "";
     position: absolute;
     top: 0;
     left: 0;
     width: 145%;
-    height: 150%;
-    transform: translate(-20px, -5px);
+    height: 190%;
+    transform: translate(-20px, -9px);
     background-color: rgb(192, 192, 192);
     z-index: -1;
 }

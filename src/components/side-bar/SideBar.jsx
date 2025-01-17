@@ -31,7 +31,7 @@ const SideBar = () => {
           <NavLink
             key={path}
             to={path}
-            className={`flex  items-center justify-between ${active == path ? "active text-purple-500" : ""}`}
+            className={`flex items-center justify-between ${active == path ? "active-side-route text-purple-500" : ""}`}
             onClick={() => setIsActive(path)}
           >
             <FontAwesomeIcon icon={icon} className={fontawesomeClass} />

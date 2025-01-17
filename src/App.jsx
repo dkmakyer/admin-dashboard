@@ -13,7 +13,7 @@ const App = () => {
         <SideBar/>
         <Header/>
         </div>
-        <div className="main-screen translate-y-[-30px] w-[85.3vw] h-[89.8vh] translate-x-[11.4rem] translate-y-[-35.5rem]">
+        <div className="main-screen absolute translate-y-[-30px] w-[85.3vw] h-[89.8vh] translate-x-[11.4rem] translate-y-[-35.5rem]">
         <Routes>
           <Route path="/" element={<Dashboard/>}/>
           {/* <Route path="/products" element={<Products/>}/>

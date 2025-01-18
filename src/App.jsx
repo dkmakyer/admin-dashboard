@@ -12,14 +12,16 @@ const App = () => {
   return (
     <div className="relative max-h-[100vh]">
       <BrowserRouter>
-        <div className="flex flex-row">
-          <SideBar />
-          <Header />
+        <div className="fixed top-0 left-0 bottom-0 ">
+          <SideBar/>
         </div>
-        <div className="main-screen absolute translate-y-[-30px] w-[85.3vw] h-[89.8vh] translate-x-[11.4rem] translate-y-[-35.5rem]">
+        <div className="fixed top-0 left-0 right-0 translate-x-[13rem]">
+          <Header/>
+        </div>
+        <div className="main-screen absolute translate-y-[70px] w-[83.5vw] h-[89vh] translate-x-[13rem] translate-y-[-35.5rem]">
           <Routes>
             <Route path="/" element={<Dashboard />}>
-              <Route path="tiles" element={<Tiles />} />
+              <Route index element={<Tiles />} />
               <Route path="charts" element={<Charts />} />
               <Route path="trends" element={<Trends />} />
             </Route>

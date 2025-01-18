@@ -19,7 +19,7 @@ const Header = () => {
 
     return (
         <>
-            <div className="header-container relative w-full h-[10%] flex flex-row p-4 text-[14px]">
+            <div className="header-container relative w-[85%] h-[10%] flex flex-row p-4 text-[14px]">
                 <div className="first-half flex flex-row justify-between w-[30%]">
                     <h1 className='text-[20px] font-bold translate-y-[-4px]'>DASHBOARD</h1>
                     {routes.map(({ path, icon, label }) => (

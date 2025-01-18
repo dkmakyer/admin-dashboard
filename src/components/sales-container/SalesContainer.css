@@ -32,6 +32,17 @@
     z-index: 1;
     background-color: white;
 }
-.details-container:hover, .more-button:hover{
+.more-button:hover{
     cursor: pointer;
+}
+.closeIcon{
+    background-color: rgba(0, 0, 0, 0.2);
+    width: 20px;
+    border-radius: 50%;
+    padding-left: 5px;
+    cursor: pointer;
+}
+.closeIcon:hover{
+    background-color: rgba(0, 0, 0, 0.9);
+    color: rgb(255, 255, 255);
 }

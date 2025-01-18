@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./SalesContainer.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCaretRight } from "@fortawesome/free-solid-svg-icons";
+import { faCaretRight, faX } from "@fortawesome/free-solid-svg-icons";
 
 const SalesContainer = ({
   time,
@@ -66,17 +66,17 @@ const SalesContainer = ({
       <div className="sales-container-middle p-2">
         <div className="mini-middle text-[13px] pb-2">
           <p className="text-gray-600 w-[50%] flex items-center justify-between">Sales <span className={`text-[12px] ${topLoss.split("")[0] === "-" ? "text-red-500" : "text-green-500"}`}>{topLoss}</span></p>
-          <h1 className="text-2xl font-bold mb-[0.5rem]">${sales}</h1>
+          <h1 className="text-3xl font-bold mb-[0.5rem]">${sales}</h1>
           <div className="order-details flex flex-row justify-between">
             <div className="order">
               <p className="text-gray-600">Order / Units</p>
-              <h4 className="text-[0.9rem] font-bold">
+              <h4 className="text-[1.1rem] font-[500]">
                 {orders} / {units}
               </h4>
             </div>
             <div className="refunds translate-x-[-2rem]">
               <p className="text-gray-600">Refunds</p>
-              <h4 className="text-[0.9rem] font-bold">{refunds}</h4>
+              <h4 className="text-[1.1rem] font-[500]">{refunds}</h4>
             </div>
           </div>
         </div>
@@ -85,19 +85,19 @@ const SalesContainer = ({
         <div className="mini-pricing text-[13px]  pb-2 grid grid-cols-2">
           <div className="cost">
             <p className="text-gray-600">Adv. cost</p>
-            <h4 className="text-[0.9rem] font-bold">$-{cost}</h4>
+            <h4 className="text-[1.1rem] font-[500]">$-{cost}</h4>
           </div>
           <div className="payout">
             <p className="text-gray-600">Est. payout</p>
-            <h4 className="text-[0.9rem] font-bold">${payout}</h4>
+            <h4 className="text-[1.1rem] font-[500]">${payout}</h4>
           </div>
           <div className="gross-profit">
             <p className="text-gray-600">Gross profit</p>
-            <h4 className="text-[0.9rem] font-bold">${gross}</h4>
+            <h4 className="text-[1.1rem] font-[500]">${gross}</h4>
           </div>
           <div className="net-profit">
             <p className="text-gray-600  flex items-center justify-between">Net profit <span className={`text-[12px] ${downLoss.split("")[0] === "-" ? "text-red-500" : "text-green-500"}`}>{downLoss}</span></p>
-            <h4 className="text-[0.9rem] font-bold">${net}</h4>
+            <h4 className="text-[1.1rem] font-[500]">${net}</h4>
           </div>
         </div>
         <button
@@ -109,12 +109,14 @@ const SalesContainer = ({
       </div>
       {display && (
         <div
-          onClick={toggleDisplay}
           className="details-container absolute flex flex-col p-2 w-[100%] translate-y-[15px] translate-x-[-15px]"
         >
-          <div className="details-date mb-[0.5rem]">
+          <div className="details-date flex flex-row items-center justify-between mb-[0.5rem]">
+            <div>
             <h2>{time}</h2>
             <p className="text-[12px] border-b-2">{currentDate}</p>
+            </div>
+            <div className="closeIcon text-[12px] mr-[10px]" onClick={toggleDisplay}><FontAwesomeIcon icon={faX} /></div>
           </div>
           <div>
             <ul className="text-[0.9rem] w-[15vw] bg-white-900">

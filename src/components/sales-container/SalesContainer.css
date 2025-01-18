@@ -12,12 +12,6 @@
 .mini-middle, .mini-pricing{
     border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 }
-/* .more-button{
-
-} 
-.more-button:hover{
-    border-bottom: 3px solid rgba(38, 0, 255);
-} */
 .first{
     background-color: rgba(0, 0, 255, 0.5);
 }
@@ -37,4 +31,7 @@
     border: 1px solid rgba(0, 0, 0, 0.2);
     z-index: 1;
     background-color: white;
+}
+.details-container:hover, .more-button:hover{
+    cursor: pointer;
 }

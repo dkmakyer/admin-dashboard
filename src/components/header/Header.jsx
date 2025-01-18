@@ -9,7 +9,7 @@ const Header = () => {
 
     const routes = [
         { path: '/tiles', icon: faBoxes, label: 'Tiles' },
-        { path: '/chart', icon: faChartBar, label: 'Chart' },
+        { path: '/charts', icon: faChartBar, label: 'Chart' },
         { path: '/trends', icon: faChartLine, label: 'Trends' },
     ];
 

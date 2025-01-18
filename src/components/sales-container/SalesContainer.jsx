@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./SalesContainer.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowDown, faCaretRight } from "@fortawesome/free-solid-svg-icons";
+import { faCaretRight } from "@fortawesome/free-solid-svg-icons";
 
 const SalesContainer = ({
   time,
@@ -16,14 +16,11 @@ const SalesContainer = ({
   gross,
   net,
 }) => {
-    const [activeItem , setActiveItem] = useState(null);
+  const [display, setDisplay] = useState(false);
 
-  const toggleActive = (item) => {
-    if(activeItem == item){
-        setActiveItem(null);
-    }else{
-        setActiveItem(item);
-    }
+  const toggleDisplay = () => {
+    setDisplay((prev) => !prev);
+    // alert("triggered");
   };
 
   const currentDate = new Date().toLocaleDateString();
@@ -102,32 +99,35 @@ const SalesContainer = ({
             <h4 className="text-[0.9rem] font-bold">${net}</h4>
           </div>
         </div>
+        <button
+          className="more-button pt-[0.2rem] pl-[5rem] text-blue-700 pb-[10px]"
+          onClick={toggleDisplay}
+        >
+          More
+        </button>
       </div>
-      <button
-        className="more-button text-blue-700 pb-[10px]"
-        onClick={() => toggleActive(time)}
-      >
-        More
-      </button>
-      {
-        activeItem === time ? (        <div className="details-container absolute flex flex-col p-2 w-[100%] ">
-            <div className="details-date mb-[0.5rem]">
-              <h2>{time}</h2>
-              <p className="text-[12px] border-b-2">{currentDate}</p>
-            </div>
-            <div>
-              <ul className="text-[0.9rem] w-[15vw] bg-white-900">
-                {salesDetails.map((detail, index) => (
-                  <SalesDetailItem
-                    key={index}
-                    label={detail.label}
-                    value={detail.value}
-                  />
-                ))}
-              </ul>
-            </div>
-          </div>) : null
-      }
+      {display && (
+        <div
+          onClick={toggleDisplay}
+          className="details-container absolute flex flex-col p-2 w-[100%] translate-y-[15px] translate-x-[-15px]"
+        >
+          <div className="details-date mb-[0.5rem]">
+            <h2>{time}</h2>
+            <p className="text-[12px] border-b-2">{currentDate}</p>
+          </div>
+          <div>
+            <ul className="text-[0.9rem] w-[15vw] bg-white-900">
+              {salesDetails.map((detail, index) => (
+                <SalesDetailItem
+                  key={index}
+                  label={detail.label}
+                  value={detail.value}
+                />
+              ))}
+            </ul>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

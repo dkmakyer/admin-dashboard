@@ -24,18 +24,18 @@ const ProfitsAndLoss = () => {
     ];
 
     const months = [
-        "January", "February", "March", "April", "May", "June",
-        "July", "August", "September", "October", "November", "December"
+        "Jan", "Feb", "Mar", "Apr", "May", "Jun",
+        "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
     ];
 
     return (
-        <div className='profits-and-loss-container w-[100%] p-4 text-gray-700'>
+        <div className='profits-and-loss-container bg-blue-100 w-[100%] p-4 text-gray-700'>
             <table className="profits-and-loss-table">
                 <thead>
                     <tr className='border-b'>
                         <th className='border-r text-left p-[2px]'>Metrics</th>
                         {months.map((month) => (
-                            <th key={month} className='m-[40px] p-2 text-right'>{month}</th>
+                            <th key={month} className='m-[40px] text-[13px] p-5 text-right'>{month}</th>
                         ))}
                     </tr>
                 </thead>
@@ -58,7 +58,7 @@ const ProfitsAndLoss = () => {
                             <tr className="border-b text-[15px] h-[1.5rem]" key={detail.label}>
                                 <td className='border-r p-[0.2rem]'>{detail.label}</td>
                                 {dataSet.map((value, index) => (
-                                    <td key={index} className='border-b text-[12px] pl-4 text-right'>{value}</td> // Populate with the calculated value for each month
+                                    <td key={index} className='border-b text-[12px] pl-4 pt-2 pb-2 text-right'>{value}</td> // Populate with the calculated value for each month
                                 ))}
                             </tr>
                         );

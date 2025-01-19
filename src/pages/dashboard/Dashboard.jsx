@@ -36,7 +36,7 @@ const Dashboard = () => {
     <>
       <div className="dashboard-container p-2">
         <Outlet />
-        <div className='sales-info-container mt-[4rem] w-[100%] p-4 text-gray-700'>
+        <div className='sales-info-container bg-gray-100 mt-[4rem] w-[100%] p-4 text-gray-700'>
           <table className="sales-info-table">
             <thead>
               <tr className='border-b'>
@@ -78,7 +78,7 @@ const Dashboard = () => {
                       {`${generateRandomNumber(0, 10, 1)}%`}
                     </td>
                     <td className='border-b text-[12px] pl-12 text-center'>
-                      <button className=' h-[20px] w-[60px] rounded hover:bg-gray-200'>{`More`}</button>
+                      <button className=' h-[20px] w-[60px] rounded hover:bg-gray-400'>{`More`}</button>
                     </td>
                   </tr>
                 );

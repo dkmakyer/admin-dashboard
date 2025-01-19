@@ -7,6 +7,7 @@ import Header from "./components/header/Header";
 import Tiles from "./components/tiles/Tiles";
 import Charts from "./components/charts/Charts";
 import Trends from "./components/trends/Trends";
+import ProfitsAndLoss from "./components/profit-and-loss/ProfitsAndLoss";
 
 const App = () => {
   return (
@@ -24,6 +25,7 @@ const App = () => {
               <Route index element={<Tiles />} />
               <Route path="charts" element={<Charts />} />
               <Route path="trends" element={<Trends />} />
+              <Route path="profitsAndLoss" element={<ProfitsAndLoss />} />
             </Route>
 
             {/* <Route path="/products" element={<Products />} />

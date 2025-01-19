@@ -13,7 +13,7 @@ const Charts = () => {
       <div className="relative translate-x-[12rem]">
         <div className="flex flex-rows items-center justify-between w-[16.4vw] translate-x-[-1rem]">
           <Calendar />
-          <button className="fixed top-0 translate-x-[9.3rem] secondDateButton p-[3px] rounded">
+          <button className="fixed top-0 translate-x-[9.3rem] secondDateButton p-[3px] rounded hover:bg-blue-200 text-white-500">
             All Period
           </button>
         </div>

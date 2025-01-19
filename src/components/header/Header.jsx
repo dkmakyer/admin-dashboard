@@ -3,6 +3,7 @@ import './Header.css';
 import { NavLink } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBell, faBoxes, faChartBar, faChartLine, faDownLong, faUser  } from '@fortawesome/free-solid-svg-icons';
+import { faMoneyBill1Wave } from '@fortawesome/free-solid-svg-icons/faMoneyBill1Wave';
 
 const Header = () => {
     const [active, setActive] = useState(''); // Set default active route
@@ -10,6 +11,7 @@ const Header = () => {
     const routes = [
         { path: '/tiles', icon: faBoxes, label: 'Tiles' },
         { path: '/charts', icon: faChartBar, label: 'Chart' },
+        { path: '/profitsAndLoss', icon: faMoneyBill1Wave, label: 'P&L'},
         { path: '/trends', icon: faChartLine, label: 'Trends' },
     ];
 
@@ -20,7 +22,7 @@ const Header = () => {
     return (
         <>
             <div className="header-container relative w-[85%] h-[10%] flex flex-row p-4 text-[14px]">
-                <div className="first-half flex flex-row justify-between w-[30%]">
+                <div className="first-half flex flex-row justify-between w-[40%]">
                     <h1 className='text-[20px] font-bold translate-y-[-4px]'>DASHBOARD</h1>
                     {routes.map(({ path, icon, label }) => (
                         <NavLink

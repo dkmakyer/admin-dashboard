@@ -5,7 +5,6 @@ import useRandomNumbers from '../../hooks/useRandomNumber';
 const ProfitsAndLoss = () => {
     const generateRandomNumber = useRandomNumbers();
 
-    // Populate salesDetails with random numbers
     const salesDetails = [
         { label: "Sales" },
         { label: "Units" },

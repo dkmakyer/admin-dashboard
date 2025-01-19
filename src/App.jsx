@@ -19,7 +19,7 @@ const App = () => {
         <div className="fixed top-0 left-0 right-0 translate-x-[13rem]">
           <Header/>
         </div>
-        <div className="main-screen absolute translate-y-[70px] w-[83.5vw] h-[89vh] translate-x-[13rem] translate-y-[-35.5rem]">
+        <div className="main-screen absolute translate-y-[70px] w-[83.5vw] h-[89vh] translate-x-[13rem] translate-y-[-35.5rem] z-[-1]">
           <Routes>
             <Route path="/" element={<Dashboard />}>
               <Route index element={<Tiles />} />

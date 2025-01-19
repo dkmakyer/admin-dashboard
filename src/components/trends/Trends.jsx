@@ -1,10 +1,12 @@
-import React from 'react';
+import {useContext} from 'react';
 import "./Trends.css";
 import useRandomNumbers from '../../hooks/useRandomNumber';
 import SingleLineChart from '../mini-charts/trend-chart/TrendChart';
+import {ProductContext} from '../../contexts/ProductsContext'
 
 const Trends = () => {
   const generateRandomNumber = useRandomNumbers();
+  const { products, error } = useContext(ProductContext);
 
   // const KPI = [ "Sales" , "Units" , "Advertising Cost" , "Shipping costs" , "Refund cost" , "BCMS fees" , "Cost of goods" , "Gross profit" , "Expenses" , "Net profit" , "Estimated payout" , "%Refunds" , "Sellable returns" , "Margin" , "ROI"];
 
@@ -26,9 +28,20 @@ const Trends = () => {
     { label: "ROI" },
   ];
   const months = [
-    "January", "February", "March", "April", "May", "June",
-    "July", "August", "September", "October", "November", "December"
+    "Jan", "Feb", "Mar", "Apr", "May", "Jun",
+    "July", "Aug", "Sept", "Oct", "Nov", "Dec"
   ];
+
+
+  const displayedItems = products.slice(0,1).map((product, i) => {
+    return (
+      <div className="product flex flex-rows items-center">
+        <img src={product.image} alt="product-image" className='w-[40px] h-[40px] mr-[0.2rem]'/><p className='text-[12px]'>{product.title.split(" ").slice(0,6)}</p>
+      </div>
+    );
+});
+
+
   return (
     <div className='KPI-container w-[100%] p-4 text-gray-700'>
       <table className="KPI-table">
@@ -37,7 +50,7 @@ const Trends = () => {
             <th className='border-r text-left p-[2px]'>Product</th>
             <th className='border-r text-left p-[2px]'>Chart</th>
             {months.map((month) => (
-              <th key={month} className='m-[40px] p-2 text-right'>{month}</th>
+              <th key={month} className='m-[9rem] p-4 pl-[1.4rem] text-right'>{month}</th>
             ))}
           </tr>
         </thead>
@@ -58,7 +71,7 @@ const Trends = () => {
 
             return (
               <tr className="border-b text-[15px] h-[1.5rem]" key={detail.label}>
-                <td className='border-r p-[0.2rem]'>{detail.label}</td>
+                <td className='border-r p-[0.2rem]'>{displayedItems}</td>
                 <td className='border-r p-[0.2rem]'><SingleLineChart/></td>
                 {dataSet.map((value, index) => (
                   <td key={index} className='border-b text-[12px] text-right'>{value}</td> // Populate with the calculated value for each month

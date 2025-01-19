@@ -1,4 +1,3 @@
-// src/components/SingleLineChart.js
 import React from "react";
 import "./TrendChart.css";
 import { Line } from "react-chartjs-2";
@@ -14,7 +13,6 @@ import {
 } from "chart.js";
 import useRandomNumbers from "../../../hooks/useRandomNumber";
 
-// Register the necessary components
 ChartJS.register(
     CategoryScale,
     LinearScale,
@@ -35,7 +33,6 @@ const SingleLineChart = () => {
                 label: "Data",
                 data: generateRandomNumbers(50, 500, 12),
                 fill: false,
-                // backgroundColor: "rgb(0, 255, 128)",
                 borderColor: "rgb(0, 60, 255)",
                 borderWidth: 0.5,
                 tension: 0.1,

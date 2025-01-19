@@ -13,6 +13,7 @@ import {
     Tooltip,
     Legend,
 } from "chart.js";
+import useRandomNumbers from "../../../hooks/useRandomNumber";
 
 // Register the necessary components
 ChartJS.register(
@@ -28,11 +29,10 @@ ChartJS.register(
 
 const LineChart = () => {
 
-    const generateRandomNumbers = (min, max, count) => {
-        return Array.from({ length: count }, () => Math.floor(Math.random() * (max - min + 1)) + min);
-    };
+    const generateRandomNumbers = useRandomNumbers();
+
     const data1 = {
-        labels: ["Jan", "Feb", "Mar", "Aprl", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+        labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
         datasets: [
             {
                 label: "Units Sold",

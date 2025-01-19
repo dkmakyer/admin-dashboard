@@ -32,11 +32,12 @@ const Trends = () => {
     "July", "Aug", "Sept", "Oct", "Nov", "Dec"
   ];
 
-
+  let start = Math.floor(Math.random()) * 5;
+  let end = start - 1; 
   const displayedItems = products.slice(0,1).map((product, i) => {
     return (
       <div className="product flex flex-rows items-center">
-        <img src={product.image} alt="product-image" className='w-[40px] h-[40px] mr-[0.2rem]'/><p className='text-[12px]'>{product.title.split(" ").slice(0,6)}</p>
+        <img src={product.image} alt="product-image" className='w-[40px] h-[40px] mr-[0.2rem]'/><p className='text-[12px]'>{product.title.split(" ").slice(0,5)}</p>
       </div>
     );
 });

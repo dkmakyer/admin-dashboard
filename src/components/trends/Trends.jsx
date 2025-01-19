@@ -8,7 +8,6 @@ const Trends = () => {
   const generateRandomNumber = useRandomNumbers();
   const { products, error } = useContext(ProductContext);
 
-  // const KPI = [ "Sales" , "Units" , "Advertising Cost" , "Shipping costs" , "Refund cost" , "BCMS fees" , "Cost of goods" , "Gross profit" , "Expenses" , "Net profit" , "Estimated payout" , "%Refunds" , "Sellable returns" , "Margin" , "ROI"];
 
   const KPI = [
     { label: "Sales" },
@@ -32,8 +31,6 @@ const Trends = () => {
     "July", "Aug", "Sept", "Oct", "Nov", "Dec"
   ];
 
-  let start = Math.floor(Math.random()) * 5;
-  let end = start - 1; 
   const displayedItems = products.slice(0,1).map((product, i) => {
     return (
       <div className="product flex flex-rows items-center">
@@ -74,9 +71,33 @@ const Trends = () => {
               <tr className="border-b text-[15px] h-[1.5rem]" key={detail.label}>
                 <td className='border-r p-[0.2rem]'>{displayedItems}</td>
                 <td className='border-r p-[0.2rem]'><SingleLineChart/></td>
-                {dataSet.map((value, index) => (
-                  <td key={index} className='border-b text-[12px] text-right'>{value}</td> // Populate with the calculated value for each month
-                ))}
+                <td className='border-b text-[12px] pl-12 text-center'>
+                      {`${generateRandomNumber(50, 200, 1)}`}
+                    </td>
+                    <td className='border-b text-[12px] pl-12 text-center'>
+                      {`${generateRandomNumber(0, 20, 1)}%`}
+                    </td>
+                    <td className='border-b text-[12px] pl-12 text-center'>
+                      {`$ ${generateRandomNumber(2000, 20000, 1)}.00`}
+                    </td>
+                    <td className='border-b text-[12px] pl-12 text-center'>
+                      {`$- ${generateRandomNumber(100, 500, 1)}.00`}
+                    </td>
+                    <td className='border-b text-[12px] pl-12 text-center'>
+                      {`---`}
+                    </td>
+                    <td className='border-b text-[12px] pl-12 text-center'>
+                      {`$ ${generateRandomNumber(50, 500, 1)}.00`}
+                    </td>
+                    <td className='border-b text-[12px] pl-12 text-center'>
+                      {`${generateRandomNumber(0, 20, 1)}%`}
+                    </td>
+                    <td className='border-b text-[12px] pl-12 text-center'>
+                      {`${generateRandomNumber(0, 10, 1)}%`}
+                    </td>
+                    <td className='border-b text-[12px] pl-12 text-center'>
+                      <button className=' h-[20px] w-[60px] rounded hover:bg-gray-400'>{`More`}</button>
+                    </td>
               </tr>
             );
           })}
@@ -87,3 +108,36 @@ const Trends = () => {
 };
 
 export default Trends;
+// import LineChart from "../mini-charts/line-chart/LineChart";
+// import DetailsContainer from "../details-container/DetailsContainer";
+// import Calendar from "../calendar/Calendar";
+
+// const Charts = () => {
+//   return (
+//     <div className="chart-container flex flex-rows h-[60vh]">
+//       <div className="w-[60%] h-[100%]">
+//         <LineChart />
+//       </div>
+//       <div className="relative translate-x-[12rem]">
+//         <div className="flex flex-rows items-center justify-between w-[16.4vw] translate-x-[-1rem]">
+//           <Calendar />
+//           <button className="fixed top-0 translate-x-[9.3rem] secondDateButton p-[3px] rounded hover:bg-blue-200 text-white-500">
+//             All Period
+//           </button>
+//         </div>
+//         <div className="fixed top-0 translate-y-[2rem] z-[-5]">
+//         <DetailsContainer
+//           hideTop={true}
+//           sales="1,178.23"
+//           cost="32.04"
+//           gross="574.33"
+//           net="89.11"
+//           payout="849.32"
+//         />
+//         </div>
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default Charts;

@@ -1,6 +1,6 @@
 import React from "react";
 import "./App.css";
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { HashRouter, Routes, Route, Navigate } from "react-router-dom";
 import Dashboard from "./pages/dashboard/Dashboard";
 import SideBar from "./components/side-bar/SideBar";
 import Header from "./components/header/Header";
@@ -12,7 +12,7 @@ import ProfitsAndLoss from "./components/profit-and-loss/ProfitsAndLoss";
 const App = () => {
   return (
     <div className="relative max-h-[100vh]">
-      <BrowserRouter>
+      <HashRouter>
         <div className="fixed top-0 left-0 bottom-0 ">
           <SideBar/>
         </div>
@@ -36,7 +36,7 @@ const App = () => {
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </div>
-      </BrowserRouter>
+      </HashRouter>
     </div>
   );
 };

@@ -10,9 +10,9 @@ const Header = () => {
 
     const routes = [
         { path: '/tiles', icon: faBoxes, label: 'Tiles' },
-        { path: '/trends', icon: faChartLine, label: 'Trends' },
-        { path: '/profitsAndLoss', icon: faMoneyBill1Wave, label: 'P&L'},
         { path: '/charts', icon: faChartBar, label: 'Chart' },
+        { path: '/profitsAndLoss', icon: faMoneyBill1Wave, label: 'P&L'},
+        { path: '/trends', icon: faChartLine, label: 'Trends' },
     ];
 
     function setIsActive(path) {

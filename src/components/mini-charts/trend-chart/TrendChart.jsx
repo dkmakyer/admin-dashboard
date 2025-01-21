@@ -58,8 +58,8 @@ const SingleLineChart = () => {
     };
 
     return (
-        <div>
-            <Line className="w-[30%]" data={data} options={options} />
+        <div className="w-[10vw] h-[15vh]">
+            <Line data={data} options={options} />
         </div>
     );
 };

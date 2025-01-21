@@ -8,12 +8,29 @@ const Trends = () => {
   const generateRandomNumber = useRandomNumbers();
   const { products, error } = useContext(ProductContext);
 
+  // const KPI = [
+  //   { label: "Sales" },
+  //   { label: "Units" },
+  //   { label: "Advertising Cost" },
+  //   { label: "Shipping costs" },
+  //   { label: "Refund cost" },
+  // ];
   const KPI = [
     { label: "Sales" },
     { label: "Units" },
     { label: "Advertising Cost" },
     { label: "Shipping costs" },
     { label: "Refund cost" },
+    { label: "BCMS fees" },
+    { label: "Cost of goods" },
+    { label: "Gross profit" },
+    { label: "Expenses" },
+    { label: "Net profit" },
+    { label: "Estimated payout" },
+    { label: "%Refunds" },
+    { label: "Sellable returns" },
+    { label: "Margin" },
+    { label: "ROI" },
   ];
   const months = [
     "Jan", "Feb", "Mar", "Apr", "May", "Jun",
@@ -22,7 +39,7 @@ const Trends = () => {
 
   const displayedItems = products.slice(0,1).map((product, i) => {
     return (
-      <div className="product flex flex-rows items-center">
+      <div key={i} className="product flex flex-rows items-center">
         <img src={product.image} alt="product-image" className='w-[40px] h-[40px] mr-[0.2rem]'/><p className='text-[12px]'>{product.title.split(" ").slice(0,3)}</p>
       </div>
     );
@@ -51,7 +68,7 @@ const Trends = () => {
       <div className="buttons flex flex-rows justify-around border rounded h-[4rem] p-2 mb-16">
         {
           KPI.map((item) => {
-           return <button key={item.label} className='w-[6rem] rounded hover:bg-gray-300' onClick={() => changeData(item.label)}>{item.label}</button>
+           return <button key={item.label} className='w-[6rem] rounded hover:bg-gray-300 text-[12px] font-bold' onClick={() => changeData(item.label)}>{item.label}</button>
           } )
         }
       </div>

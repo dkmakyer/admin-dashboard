@@ -22,7 +22,7 @@ const Dashboard = () => {
 
 
   // Get a single product to display
-  const displayedItems = products.slice(3, 4).map((product, i) => {
+  const displayedItems = products.map((product, i) => {
     return (
       <div className="product flex flex-rows items-center" key={i}>
         <img src={product.image} alt="product-image" className='w-[40px] h-[40px] mr-[0.2rem]' />
@@ -48,11 +48,11 @@ const Dashboard = () => {
               </tr>
             </thead>
             <tbody>
-              {salesKpi.map((detail) => {
+              {displayedItems.map((item, index) => {
                 return (
-                  <tr className="border-b text-[15px] h-[1.5rem]" key={detail.label}>
-                    <td className='border-r p-[1.2rem]'>
-                      {displayedItems}
+                  <tr className="border-b text-[15px] h-[1.5rem]" key={index}>
+                    <td className='border-r p-[1.2rem] w-[15vw] '>
+                      {item}
                     </td>
                     <td className='border-b text-[12px] pl-12 text-center'>
                       {`${generateRandomNumber(50, 200, 1)}`}

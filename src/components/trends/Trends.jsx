@@ -1,8 +1,8 @@
-import {useContext, useState} from 'react';
+import { useContext, useState } from 'react';
 import "./Trends.css";
 import useRandomNumbers from '../../hooks/useRandomNumber';
 import SingleLineChart from '../mini-charts/trend-chart/TrendChart';
-import {ProductContext} from '../../contexts/ProductsContext'
+import { ProductContext } from '../../contexts/ProductsContext'
 
 const Trends = () => {
   const generateRandomNumber = useRandomNumbers();
@@ -37,16 +37,17 @@ const Trends = () => {
     "July", "Aug", "Sept", "Oct", "Nov", "Dec"
   ];
 
-  const displayedItems = products.slice(0,1).map((product, i) => {
+
+  const displayedItems = products.slice(0, 8).map((product, i) => {
     return (
       <div key={i} className="product flex flex-rows items-center">
-        <img src={product.image} alt="product-image" className='w-[40px] h-[40px] mr-[0.2rem]'/><p className='text-[12px]'>{product.title.split(" ").slice(0,3)}</p>
+        <img src={product.image} alt="product-image" className='w-[40px] h-[40px] mr-[0.2rem]' /><p className='text-[12px]'>{product.title.split(" ").slice(0, 3)}</p>
       </div>
     );
-});
+  });
 
-  const [dataSet, setDataSet] = useState(["-","-","-","-","-","-","-","-","-","-","-","-"]);
-  function changeData(label){
+  const [dataSet, setDataSet] = useState(["-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-"]);
+  function changeData(label) {
     let currentData = months.map((month) => {
       if (label === "Units" || label === "Sellable returns") {
         return (`${generateRandomNumber(50, 2000, 1)}`);
@@ -68,8 +69,8 @@ const Trends = () => {
       <div className="buttons flex flex-rows justify-around border rounded h-[4rem] p-2 mb-16">
         {
           KPI.map((item) => {
-           return <button key={item.label} className='w-[6rem] rounded hover:bg-gray-300 text-[12px] font-bold' onClick={() => changeData(item.label)}>{item.label}</button>
-          } )
+            return <button key={item.label} className='w-[6rem] rounded hover:bg-gray-300 text-[12px] font-bold' onClick={() => changeData(item.label)}>{item.label}</button>
+          })
         }
       </div>
       <table className="KPI-table">
@@ -83,13 +84,13 @@ const Trends = () => {
           </tr>
         </thead>
         <tbody>
-          {KPI.map((detail) => {
+          {displayedItems.map((item, index) => {
             return (
-              <tr className="border-b text-[15px] h-[1.5rem] ml-[1rem]" key={detail.label}>
-                <td className='border-r p-[0.2rem] pr-[2rem]'>{displayedItems}</td>
-                <td className='border-r p-[0.2rem]'><SingleLineChart/></td>
-                {dataSet.map((value, index) => (
-                  <td key={`${detail.label}-${index}`} className='border-b text-[12px] text-right'>{value}</td> // Populate with the calculated value for each month
+              <tr className="border-b text-[15px] h-[1.5rem] ml-[1rem]" key={index}>
+                <td className='border-r p-[0.2rem] pr-[2rem]'>{item}</td>
+                <td className='border-r p-[0.2rem]'><SingleLineChart /></td>
+                {dataSet.map((value, dataIndex) => (
+                  <td key={`${index}-${dataIndex}`} className='border-b text-[12px] text-right'>{value}</td> // Populate with the calculated value for each month
                 ))}
               </tr>
             );

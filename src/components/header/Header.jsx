@@ -1,23 +1,25 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './Header.css';
 import { NavLink } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBell, faBoxes, faChartBar, faChartLine, faDownLong, faUser  } from '@fortawesome/free-solid-svg-icons';
 import { faMoneyBill1Wave } from '@fortawesome/free-solid-svg-icons/faMoneyBill1Wave';
+import { useLocation } from 'react-router-dom';
 
 const Header = () => {
-    const [active, setActive] = useState(''); // Set default active route
+    const location = useLocation();
+    const [active, setActive] = useState(location.pathname); // Set default active route
 
     const routes = [
-        { path: '/tiles', icon: faBoxes, label: 'Tiles' },
+        { path: '/', icon: faBoxes, label: 'Tiles' },
         { path: '/charts', icon: faChartBar, label: 'Chart' },
         { path: '/profitsAndLoss', icon: faMoneyBill1Wave, label: 'P&L'},
         { path: '/trends', icon: faChartLine, label: 'Trends' },
     ];
 
-    function setIsActive(path) {
-        setActive(path);
-    }
+    useEffect(()=>{
+        setActive(location.pathname);
+    }, [location]);
 
     return (
         <>
@@ -28,7 +30,6 @@ const Header = () => {
                         <NavLink
                             key={path}
                             to={path}
-                            onClick={() => setIsActive(path)}
                             className={`flex items-center ${active === path ? "active-header-route" : ""}`}
                         >
                             <FontAwesomeIcon icon={icon} /> {label} {active === path ? <span className='active-bottom'></span> : null}

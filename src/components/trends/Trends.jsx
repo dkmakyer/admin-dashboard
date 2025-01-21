@@ -1,4 +1,4 @@
-import {useContext} from 'react';
+import {useContext, useState} from 'react';
 import "./Trends.css";
 import useRandomNumbers from '../../hooks/useRandomNumber';
 import SingleLineChart from '../mini-charts/trend-chart/TrendChart';
@@ -7,8 +7,6 @@ import {ProductContext} from '../../contexts/ProductsContext'
 const Trends = () => {
   const generateRandomNumber = useRandomNumbers();
   const { products, error } = useContext(ProductContext);
-
-  // const KPI = [ "Sales" , "Units" , "Advertising Cost" , "Shipping costs" , "Refund cost" , "BCMS fees" , "Cost of goods" , "Gross profit" , "Expenses" , "Net profit" , "Estimated payout" , "%Refunds" , "Sellable returns" , "Margin" , "ROI"];
 
   const KPI = [
     { label: "Sales" },
@@ -22,7 +20,6 @@ const Trends = () => {
     "July", "Aug", "Sept", "Oct", "Nov", "Dec"
   ];
 
-  let start = Math.random() 
   const displayedItems = products.slice(0,1).map((product, i) => {
     return (
       <div className="product flex flex-rows items-center">
@@ -31,9 +28,33 @@ const Trends = () => {
     );
 });
 
+  const [dataSet, setDataSet] = useState(["-","-","-","-","-","-","-","-","-","-","-","-"]);
+  function changeData(label){
+    let currentData = months.map((month) => {
+      if (label === "Units" || label === "Sellable returns") {
+        return (`${generateRandomNumber(50, 2000, 1)}`);
+      } else if (label === "Margin" || label === "ROI" || label === "%Refunds") {
+        return (`${generateRandomNumber(0, 20, 1)}%`);
+      } else if (label === "Advertising Cost" || label === "Shipping costs" || label === "Refund cost" || label === "BCMS fees" || label === "Expenses") {
+        return (`$- ${generateRandomNumber(100, 500, 1)}.00`);
+      } else {
+        return (`$ ${generateRandomNumber(2000, 20000, 1)}.00`);
+      }
+    })
+    setDataSet(currentData)
+    console.log(dataSet);
+  }
+
 
   return (
-    <div className='KPI-container w-[100%] p-4 text-gray-700'>
+    <div className='KPI-container w-[100%] p-4 text-gray-700 overflow-y-hidden'>
+      <div className="buttons flex flex-rows justify-around border rounded h-[4rem] p-2 mb-16">
+        {
+          KPI.map((item) => {
+           return <button key={item.label} className='w-[6rem] rounded hover:bg-gray-300' onClick={() => changeData(item.label)}>{item.label}</button>
+          } )
+        }
+      </div>
       <table className="KPI-table">
         <thead>
           <tr className='border-b'>
@@ -46,25 +67,12 @@ const Trends = () => {
         </thead>
         <tbody>
           {KPI.map((detail) => {
-            let dataSet = [];
-            for (let month of months) {
-              if (detail.label === "Units" || detail.label === "Sellable returns") {
-                dataSet.push(`${generateRandomNumber(50, 2000, 1)}`);
-              } else if (detail.label === "Margin" || detail.label === "ROI" || detail.label === "%Refunds") {
-                dataSet.push(`${generateRandomNumber(0, 20, 1)}%`);
-              } else if (detail.label === "Advertising Cost" || detail.label === "Shipping costs" || detail.label === "Refund cost" || detail.label === "BCMS fees" || detail.label === "Expenses") {
-                dataSet.push(`$- ${generateRandomNumber(100, 500, 1)}.00`);
-              } else {
-                dataSet.push(`$ ${generateRandomNumber(2000, 20000, 1)}.00`);
-              }
-            }
-
             return (
               <tr className="border-b text-[15px] h-[1.5rem] ml-[1rem]" key={detail.label}>
                 <td className='border-r p-[0.2rem] pr-[2rem]'>{displayedItems}</td>
                 <td className='border-r p-[0.2rem]'><SingleLineChart/></td>
                 {dataSet.map((value, index) => (
-                  <td key={index} className='border-b text-[12px] text-right'>{value}</td> // Populate with the calculated value for each month
+                  <td key={`${detail.label}-${index}`} className='border-b text-[12px] text-right'>{value}</td> // Populate with the calculated value for each month
                 ))}
               </tr>
             );

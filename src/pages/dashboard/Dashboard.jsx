@@ -20,6 +20,7 @@ const Dashboard = () => {
     { label: "Info" },
   ];
 
+
   // Get a single product to display
   const displayedItems = products.slice(3, 4).map((product, i) => {
     return (

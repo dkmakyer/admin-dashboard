@@ -8,6 +8,7 @@ import Tiles from "./components/tiles/Tiles";
 import Charts from "./components/charts/Charts";
 import Trends from "./components/trends/Trends";
 import ProfitsAndLoss from "./components/profit-and-loss/ProfitsAndLoss";
+import Products from "./pages/products/Products";
 
 const App = () => {
   return (
@@ -28,8 +29,8 @@ const App = () => {
               <Route path="profitsAndLoss" element={<ProfitsAndLoss />} />
             </Route>
 
-            {/* <Route path="/products" element={<Products />} />
-            <Route path="/inventory" element={<Inventory />} />
+             <Route path="/products" element={<Products />} />
+            {/*<Route path="/inventory" element={<Inventory />} />
             <Route path="/reports" element={<Reports />} />
             <Route path="/alerts" element={<Alerts />} />
             <Route path="/settings" element={<Settings />} /> */}

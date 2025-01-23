@@ -59,8 +59,7 @@ const Trends = () => {
         return (`$ ${generateRandomNumber(2000, 20000, 1)}.00`);
       }
     })
-    setDataSet(currentData)
-    console.log(dataSet);
+    setDataSet(currentData);
   }
 
 

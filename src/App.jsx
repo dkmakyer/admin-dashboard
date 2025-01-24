@@ -9,6 +9,7 @@ import Charts from "./components/charts/Charts";
 import Trends from "./components/trends/Trends";
 import ProfitsAndLoss from "./components/profit-and-loss/ProfitsAndLoss";
 import Products from "./pages/products/Products";
+import ProductCategory from "./pages/product-addition/product-category/ProductCategory";
 
 const App = () => {
   return (
@@ -30,6 +31,8 @@ const App = () => {
             </Route>
 
              <Route path="/products" element={<Products />} />
+            <Route  path="/product-listing" element={<ProductCategory/>}/>
+             {/* </Route> */}
             {/*<Route path="/inventory" element={<Inventory />} />
             <Route path="/reports" element={<Reports />} />
             <Route path="/alerts" element={<Alerts />} />

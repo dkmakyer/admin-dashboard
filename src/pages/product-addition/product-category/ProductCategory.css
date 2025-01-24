@@ -1,0 +1,15 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+.fav-selected{
+    border: 1px solid black;
+}
+.browse-wrapper{
+    border: 1px solid black;
+}
+.fav-category-list{
+    border-bottom: 1px solid black;
+
+}

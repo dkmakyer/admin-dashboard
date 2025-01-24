@@ -2,6 +2,7 @@ import { useContext, useEffect } from "react";
 import "./Products.css";
 import { ProductContext } from "../../contexts/ProductsContext";
 import ItemCard from "../../components/item-card/ItemCard";
+import { NavLink } from "react-router-dom";
 
 const Products = () => {
     const { products, error } = useContext(ProductContext);
@@ -38,8 +39,8 @@ const Products = () => {
                         )}
                     </div>
                 </div>
-                <div>
-                    <button className="bg-blue-500 rounded h-[2rem] text-[13px] font-bold translate-x-[30rem] p-4 pb-8 hover:bg-blue-400">Add a Product</button>
+                <div className="relative">
+                    <NavLink to="/product-listing" className="bg-blue-500 absolute left-[30rem] rounded text-[13px] font-bold  p-4  hover:bg-blue-400">Add a Product</NavLink>
                 </div>
             </div>
         </>

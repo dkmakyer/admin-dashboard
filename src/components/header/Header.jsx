@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import './Header.css';
 import { NavLink } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -8,25 +8,29 @@ import { useLocation } from 'react-router-dom';
 
 const Header = () => {
     const location = useLocation();
-    const [active, setActive] = useState(location.pathname); // Set default active route
+    const [active, setActive] = useState(location.pathname); 
+    const [currentLocation, setCurrentLocation] = useState("DASHBOARD");
 
-    const routes = [
+    useEffect(()=> {
+        const displayLocation = location.pathname.split("/");
+        let lastLocationItem = displayLocation[displayLocation.length -1] === "" ? "DASHBOARD" : displayLocation[displayLocation.length -1].toUpperCase();
+        setCurrentLocation(lastLocationItem);
+        setActive(location.pathname);
+    }, [location]);
+
+    const routes = useMemo(() => [
         { path: '/', icon: faBoxes, label: 'Tiles' },
         { path: '/charts', icon: faChartBar, label: 'Chart' },
         { path: '/profitsAndLoss', icon: faMoneyBill1Wave, label: 'P&L'},
         { path: '/trends', icon: faChartLine, label: 'Trends' },
-    ];
-
-    useEffect(()=>{
-        setActive(location.pathname);
-    }, [location]);
+    ], []);
 
     return (
         <>
-            <div className="header-container relative w-[85%] h-[10%] flex flex-row p-4 text-[14px] z-[100]">
+            <div className="header-container relative w-[85%] h-[10%] flex flex-row p-4 text-[14px] z-[100] translate-x-[-0.2rem]">
                 <div className="first-half flex flex-row justify-between w-[40%]">
-                    <h1 className='text-[20px] font-bold translate-y-[-4px]'>DASHBOARD</h1>
-                    {routes.map(({ path, icon, label }) => (
+                    <h1 className='text-[20px] font-bold translate-y-[-4px]'>{currentLocation}</h1>
+                    {currentLocation === "DASHBOARD" && (routes.map(({ path, icon, label }) => (
                         <NavLink
                             key={path}
                             to={path}
@@ -34,7 +38,7 @@ const Header = () => {
                         >
                             <FontAwesomeIcon icon={icon} /> {label} {active === path ? <span className='active-bottom'></span> : null}
                         </NavLink>
-                    ))}
+                    )))}
                 </div>
                 <div className="last-half absolute right-14 flex flex-row justify-evenly w-[20%]">
                     <div className='w-[30%] flex flex-row items-center'>

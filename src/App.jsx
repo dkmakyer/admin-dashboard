@@ -27,7 +27,7 @@ const App = () => {
               <Route index element={<Tiles />} />
               <Route path="charts" element={<Charts />} />
               <Route path="trends" element={<Trends />} />
-              <Route path="profitsAndLoss" element={<ProfitsAndLoss />} />
+              <Route path="profit-and-loss" element={<ProfitsAndLoss />} />
             </Route>
 
              <Route path="/products" element={<Products />} />

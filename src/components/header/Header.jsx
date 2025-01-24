@@ -21,7 +21,7 @@ const Header = () => {
     const routes = useMemo(() => [
         { path: '/', icon: faBoxes, label: 'Tiles' },
         { path: '/charts', icon: faChartBar, label: 'Chart' },
-        { path: '/profitsAndLoss', icon: faMoneyBill1Wave, label: 'P&L'},
+        { path: '/profit-and-loss', icon: faMoneyBill1Wave, label: 'P&L'},
         { path: '/trends', icon: faChartLine, label: 'Trends' },
     ], []);
 
@@ -30,7 +30,7 @@ const Header = () => {
             <div className="header-container relative w-[85%] h-[10%] flex flex-row p-4 text-[14px] z-[100] translate-x-[-0.2rem]">
                 <div className="first-half flex flex-row justify-between w-[40%]">
                     <h1 className='text-[20px] font-bold translate-y-[-4px]'>{currentLocation}</h1>
-                    {currentLocation === "DASHBOARD" && (routes.map(({ path, icon, label }) => (
+                    {["/", '/charts', '/profit-and-loss', '/trends'].includes(location.pathname) && (routes.map(({ path, icon, label }) => (
                         <NavLink
                             key={path}
                             to={path}

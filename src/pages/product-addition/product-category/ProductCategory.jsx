@@ -22,15 +22,15 @@ const ProductCategory = () => {
                         <p className='fav-category-list w-full text-gray-500 text-[1rem] p-2'>select a category</p>
                         <div className='max-h-[250px] overflow-scroll'>
                             <ul>
-                                <li className='border-b border-gray-900 p-2 flex flex-row justify-between'><span><FontAwesomeIcon className='mr-2' icon={faStar} />Appliances</span> <FontAwesomeIcon icon={faCaretRight} /></li>
-                                <li className='border-b border-gray-900 p-2 flex flex-row justify-between'><span><FontAwesomeIcon className='mr-2' icon={faStar} />Arts, Crafts & Sewing</span> <FontAwesomeIcon icon={faCaretRight} /></li>
-                                <li className='border-b border-gray-900 p-2 flex flex-row justify-between'><span><FontAwesomeIcon className='mr-2' icon={faStar} />Automotive</span> <FontAwesomeIcon icon={faCaretRight} /></li>
-                                <li className='border-b border-gray-900 p-2 flex flex-row justify-between'><span><FontAwesomeIcon className='mr-2' icon={faStar} />Baby Products</span> <FontAwesomeIcon icon={faCaretRight} /></li>
-                                <li className='border-b border-gray-900 p-2 flex flex-row justify-between'><span><FontAwesomeIcon className='mr-2' icon={faStar} />Beauty & Personal Care</span> <FontAwesomeIcon icon={faCaretRight} /></li>
-                                <li className='border-b border-gray-900 p-2 flex flex-row justify-between'><span><FontAwesomeIcon className='mr-2' icon={faStar} />Books</span> <FontAwesomeIcon icon={faCaretRight} /></li>
-                                <li className='border-b border-gray-900 p-2 flex flex-row justify-between'><span><FontAwesomeIcon className='mr-2' icon={faStar} />Building Materials</span> <FontAwesomeIcon icon={faCaretRight} /></li>
-                                <li className='border-b border-gray-900 p-2 flex flex-row justify-between'><span><FontAwesomeIcon className='mr-2' icon={faStar} />Call Phones & Accessories</span> <FontAwesomeIcon icon={faCaretRight} /></li>
-                                <li className='border-b border-gray-900 p-2 flex flex-row justify-between'><span><FontAwesomeIcon className='mr-2' icon={faStar} />Provisions</span> <FontAwesomeIcon icon={faCaretRight} /></li>
+                                <li className='border-b border-gray-700 p-2 flex flex-row justify-between'><span><FontAwesomeIcon className='mr-2' icon={faStar} />Appliances</span> <FontAwesomeIcon icon={faCaretRight} /></li>
+                                <li className='border-b border-gray-700 p-2 flex flex-row justify-between'><span><FontAwesomeIcon className='mr-2' icon={faStar} />Arts, Crafts & Sewing</span> <FontAwesomeIcon icon={faCaretRight} /></li>
+                                <li className='border-b border-gray-700 p-2 flex flex-row justify-between'><span><FontAwesomeIcon className='mr-2' icon={faStar} />Automotive</span> <FontAwesomeIcon icon={faCaretRight} /></li>
+                                <li className='border-b border-gray-700 p-2 flex flex-row justify-between'><span><FontAwesomeIcon className='mr-2' icon={faStar} />Baby Products</span> <FontAwesomeIcon icon={faCaretRight} /></li>
+                                <li className='border-b border-gray-700 p-2 flex flex-row justify-between'><span><FontAwesomeIcon className='mr-2' icon={faStar} />Beauty & Personal Care</span> <FontAwesomeIcon icon={faCaretRight} /></li>
+                                <li className='border-b border-gray-700 p-2 flex flex-row justify-between'><span><FontAwesomeIcon className='mr-2' icon={faStar} />Books</span> <FontAwesomeIcon icon={faCaretRight} /></li>
+                                <li className='border-b border-gray-700 p-2 flex flex-row justify-between'><span><FontAwesomeIcon className='mr-2' icon={faStar} />Building Materials</span> <FontAwesomeIcon icon={faCaretRight} /></li>
+                                <li className='border-b border-gray-700 p-2 flex flex-row justify-between'><span><FontAwesomeIcon className='mr-2' icon={faStar} />Call Phones & Accessories</span> <FontAwesomeIcon icon={faCaretRight} /></li>
+                                <li className='border-b border-gray-700 p-2 flex flex-row justify-between'><span><FontAwesomeIcon className='mr-2' icon={faStar} />Provisions</span> <FontAwesomeIcon icon={faCaretRight} /></li>
                             </ul>
                         </div>
                     </div>

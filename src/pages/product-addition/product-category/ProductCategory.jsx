@@ -87,7 +87,7 @@ const ProductCategory = () => {
                                             <FontAwesomeIcon className='mr-2' icon={faStar} />
                                             {category}
                                         </span>
-                                        <NavLink to="/fill-detail" className="bg-blue-400 text-[12px] p-2 rounded font-bold hover:bg-blue-200">Select Category</NavLink>
+                                        <NavLink to="/product-listing/fill-detail" className="bg-blue-400 text-[12px] p-2 rounded font-bold hover:bg-blue-200">Select Category</NavLink>
                                     </li>
                                 ))}
                             </ul>

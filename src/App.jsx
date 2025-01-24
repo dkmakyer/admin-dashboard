@@ -10,6 +10,8 @@ import Trends from "./components/trends/Trends";
 import ProfitsAndLoss from "./components/profit-and-loss/ProfitsAndLoss";
 import Products from "./pages/products/Products";
 import ProductCategory from "./pages/product-addition/product-category/ProductCategory";
+import ProductListing from "./pages/product-addition/product-listing/ProductListing";
+import FillDetail from "./pages/product-addition/fill-detail/FillDetail";
 
 const App = () => {
   return (
@@ -31,7 +33,12 @@ const App = () => {
             </Route>
 
              <Route path="/products" element={<Products />} />
-            <Route  path="/product-listing" element={<ProductCategory/>}/>
+            <Route  path="/product-listing" element={<ProductListing/>}>
+            <Route index element={<FillDetail/>}/>
+
+              {/* <Route index element={<ProductCategory/>}/> */}
+              {/* <Route path="fill-detail" element={<FillDetail/>}/> */}
+            </Route>
              {/* </Route> */}
             {/*<Route path="/inventory" element={<Inventory />} />
             <Route path="/reports" element={<Reports />} />

@@ -9,11 +9,7 @@
 }
 .active-header-route{
     color: rgb(27, 0, 180);
-}
-.active-bottom{
-    background-color: rgb(27, 0, 180);
-    width: 60px;
-    height: 2px;
-    position: absolute;
-    transform: translate(-5px, 32px);
+    background-color: rgba(27, 0, 180, 0.2);
+    padding: 0.5rem;
+    border-radius: 1rem;
 }

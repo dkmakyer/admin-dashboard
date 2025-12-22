@@ -66,7 +66,7 @@ const Products = () => {
                     )}
                 </div>
                 <div className="relative">
-                    <NavLink to="/product-listing" className="bg-blue-500 absolute left-[30rem] rounded text-[13px] font-bold  p-4  hover:bg-blue-400">Add a Product</NavLink>
+                    <NavLink to="/product-listing" className="bg-blue-500 absolute left-[30rem] rounded text-[13px] font-bold  p-4  hover:bg-blue-400 ">Add a Product</NavLink>
                 </div>
             </div>
         </>

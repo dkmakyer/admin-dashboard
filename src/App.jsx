@@ -15,16 +15,16 @@ import FillDetail from "./pages/product-addition/fill-detail/FillDetail";
 
 const App = () => {
   return (
-    <div className="relative max-h-[100vh]">
+    <div className="app-container overflow-y-hidden min-w-[375px]">
       <HashRouter>
-        <div className="fixed top-0 left-0 bottom-0 ">
-          <SideBar/>
-        </div>
-        <div className="fixed top-0 left-0 right-0 translate-x-[13rem]">
+        <div className="app-header-container">
           <Header/>
         </div>
-        <div className="main-screen absolute translate-y-[70px] w-[83.5vw] h-[89vh] translate-x-[13rem] translate-y-[-35.5rem] z-[-1]">
-          <Routes>
+        <div className="app-sidebar-container">
+          <SideBar/>
+        </div>
+         <div className="app-main-screen">
+         <Routes>
             <Route path="/" element={<Dashboard />}>
               <Route index element={<Tiles />} />
               <Route path="charts" element={<Charts />} />
@@ -44,7 +44,7 @@ const App = () => {
             <Route path="/reports" element={<Reports />} />
             <Route path="/alerts" element={<Alerts />} />
             <Route path="/settings" element={<Settings />} /> */}
-            <Route path="*" element={<Navigate to="/" replace />} />
+            {/* <Route path="*" element={<Navigate to="/" replace />} /> */}
           </Routes>
         </div>
       </HashRouter>

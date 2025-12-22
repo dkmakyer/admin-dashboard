@@ -27,9 +27,9 @@ const Header = () => {
 
     return (
         <>
-            <div className="header-container relative w-[85%] h-[10%] flex flex-row p-4 text-[14px] z-[100] translate-x-[-0.2rem]">
+            <div className="header-container flex flex-row p-4 text-[14px] z-[100] ">
                 <div className="first-half flex flex-row justify-between w-[40%]">
-                    <h1 className='text-[20px] font-bold translate-y-[-4px]'>{currentLocation}</h1>
+                    <h1 className='text-[20px] font-bold '>{currentLocation}</h1>
                     {["/", '/charts', '/profit-and-loss', '/trends'].includes(location.pathname) && (routes.map(({ path, icon, label }) => (
                         <NavLink
                             key={path}
@@ -40,12 +40,12 @@ const Header = () => {
                         </NavLink>
                     )))}
                 </div>
-                <div className="last-half absolute right-14 flex flex-row justify-evenly w-[20%]">
-                    <div className='w-[30%] flex flex-row items-center'>
+                <div className="last-half flex flex-row justify-evenly ">
+                    <div className='flex flex-row items-center'>
                         <FontAwesomeIcon icon={faBell} className='text-yellow-500' />
-                        <p className='w-[50%] rounded bg-yellow-300 pl-[5px] translate-x-[-3px]'>233</p>
+                        <p className='rounded bg-yellow-300'>233</p>
                     </div>
-                    <div className='flex flex-row items-center justify-between w-[60%]'>
+                    <div className='flex flex-row items-center justify-between'>
                         <span className='flex items-center pl-[9px] rounded-[50%] text-white w-[30px] h-[30px] bg-blue-500'>
                             <FontAwesomeIcon icon={faUser } />
                         </span>

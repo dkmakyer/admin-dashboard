@@ -24,9 +24,9 @@ const SideBar = () => {
 
   return (
     <>
-    <div className="sidebar-container block relative h-[100vh] w-[15vw] text-slate-100 p-4 text-[17px]">
+    <div className="sidebar-container min-h-[100vh] max-w-[250px] p-4 text-slate-100 text-[17px]">
       <h1 className='text-[20px]'>BC MANAGEMENT VENDOR-BOARD</h1>
-      <div className="routes w-[70%] grid grid-cols-1 gap-[20px] absolute mt-[2rem]">
+      <div className="routes grid grid-cols-1 gap-[2rem] max-w-[250px] mt-[2rem]">
         {routes.map(({ path, icon, label, fontawesomeClass }) => (
           <NavLink
             key={path}

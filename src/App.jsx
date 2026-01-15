@@ -24,7 +24,7 @@ const App = () => {
           <SideBar/>
         </div>
          <div className="app-main-screen">
-         {/* <Routes>
+         <Routes>
             <Route path="/" element={<Dashboard />}>
               <Route index element={<Tiles />} />
               <Route path="charts" element={<Charts />} />
@@ -34,18 +34,18 @@ const App = () => {
 
              <Route path="/products" element={<Products />} />
             <Route  path="/product-listing" element={<ProductListing/>}>
-            <Route index element={<FillDetail/>}/> */}
+            <Route index element={<FillDetail/>}/>
 
-              {/* <Route index element={<ProductCategory/>}/> */}
-              {/* <Route path="fill-detail" element={<FillDetail/>}/> */}
-            {/* </Route> */}
+              <Route index element={<ProductCategory/>}/>
+              <Route path="fill-detail" element={<FillDetail/>}/>
+            </Route>
              {/* </Route> */}
             {/*<Route path="/inventory" element={<Inventory />} />
             <Route path="/reports" element={<Reports />} />
             <Route path="/alerts" element={<Alerts />} />
             <Route path="/settings" element={<Settings />} /> */}
             {/* <Route path="*" element={<Navigate to="/" replace />} /> */}
-          {/* </Routes> */}
+          </Routes>
         </div>
       </HashRouter>
     </div>
